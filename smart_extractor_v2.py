@@ -71,7 +71,7 @@ class Fingerprinter:
 
         for m in ws.merged_cells.ranges:
             if m.min_row >= start_row and m.max_row <= end_row:
-                merge_patterns.append(f"r{m.max_row - m.min_row}c{m.max_column - m.min_column}")
+                merge_patterns.append(f"r{m.max_row - m.min_row}c{m.max_col - m.min_col}")
 
         for row in ws.iter_rows(min_row=start_row + 1, max_row=min(start_row + 4, end_row)):
             types = [type(c.value).__name__ for c in row if c.value is not None]
